@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Modelo\" />
     <Folder Include="Amigo\" />
     <Folder Include="Caixa\" />
     <Folder Include="Emprestimo\" />
