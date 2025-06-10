@@ -8,9 +8,9 @@ namespace ClubeDaLeitura.ConsoleApp.Modelo
 {
     public abstract class EntidadeModelo
     {
-        public int id;
+        public int Id;
 
-        public abstract void atualizaRegistro(EntidadeModelo registro);
-        public abstract string validar();
+        public abstract void AtualizaRegistro(EntidadeModelo registro);
+        public abstract string Validar();
     }
 }
