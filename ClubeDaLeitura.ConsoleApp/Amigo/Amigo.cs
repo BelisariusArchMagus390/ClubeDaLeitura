@@ -13,6 +13,13 @@ namespace ClubeDaLeitura.ConsoleApp.Amigo
         public string Responsavel;
         public string Telefone;
 
+        public Amigo(string nome, string responsavel, string telefone)
+        {
+            this.Nome = nome;
+            this.Responsavel = responsavel;
+            this.Telefone = telefone;
+        }
+
         public override string ValidarDados()
         {
             throw new NotImplementedException();

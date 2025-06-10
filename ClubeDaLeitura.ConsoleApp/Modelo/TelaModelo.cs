@@ -20,7 +20,7 @@ namespace ClubeDaLeitura.ConsoleApp.Modelo
             this.Repositorio = repositorio;
         }
 
-        public char MostrarMenu()
+        public virtual char MostrarMenu()
         {
             Console.WriteLine(" --------------------------------------------");
             Console.WriteLine($"\n GESTÃO DE {NomeEntidade.ToUpper()}");
@@ -38,7 +38,7 @@ namespace ClubeDaLeitura.ConsoleApp.Modelo
             return opcao;
         }
 
-        public void Registrar()
+        public virtual void Registrar()
         {
             EntidadeModelo novoRegistro = PegarDados();
 
@@ -54,17 +54,18 @@ namespace ClubeDaLeitura.ConsoleApp.Modelo
                 Console.ReadLine();
 
                 Registrar();
-
-                Repositorio.AdicionarRegistro(novoRegistro);
-
-                Console.Clear();
-                Console.WriteLine($"\n {NomeEntidade} registrado com sucesso!");
-                Console.WriteLine("\n Aperte ENTER para continuar...");
-                Console.ReadLine();
+                return;
             }
+
+            Repositorio.AdicionarRegistro(novoRegistro);
+
+            Console.Clear();
+            Console.WriteLine($"\n {NomeEntidade} registrado com sucesso!");
+            Console.WriteLine("\n Aperte ENTER para continuar...");
+            Console.ReadLine();
         }
 
-        public void Editar()
+        public virtual void Editar()
         {
             MostrarRegistros(true);
 
