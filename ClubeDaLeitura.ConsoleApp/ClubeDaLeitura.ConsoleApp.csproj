@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Emprestimo\" />
-    <Folder Include="Revista\" />
   </ItemGroup>
 
 </Project>
