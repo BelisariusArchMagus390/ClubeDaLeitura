@@ -26,12 +26,12 @@ namespace ClubeDaLeitura.ConsoleApp.Modelo
             if (registro == null)
                 return false;
 
-            registro.AtualizaRegistro(registroAtualizado);
+            registro.AtualizarRegistro(registroAtualizado);
 
             return true;
         }
 
-        public bool DeletarRegistro(int id) 
+        public bool RemoverRegistro(int id) 
         {
             EntidadeModelo registro = SelecionarRegistroPorId(id);
 

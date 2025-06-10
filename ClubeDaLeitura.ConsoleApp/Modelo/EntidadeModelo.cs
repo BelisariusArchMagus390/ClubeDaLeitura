@@ -10,7 +10,7 @@ namespace ClubeDaLeitura.ConsoleApp.Modelo
     {
         public int Id;
 
-        public abstract void AtualizaRegistro(EntidadeModelo registro);
-        public abstract string Validar();
+        public abstract void AtualizarRegistro(EntidadeModelo registro);
+        public abstract string ValidarDados();
     }
 }
