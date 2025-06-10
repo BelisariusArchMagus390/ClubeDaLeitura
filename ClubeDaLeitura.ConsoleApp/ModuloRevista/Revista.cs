@@ -1,12 +1,12 @@
-﻿using ClubeDaLeitura.ConsoleApp.Modelo;
-
+﻿using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp.Revista
+namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 {
     public class Revista : EntidadeModelo
     {

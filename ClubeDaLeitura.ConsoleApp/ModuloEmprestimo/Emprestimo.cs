@@ -1,11 +1,13 @@
-﻿using ClubeDaLeitura.ConsoleApp.Modelo;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp.Emprestimo
+namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
     public class Emprestimo : EntidadeModelo
     {

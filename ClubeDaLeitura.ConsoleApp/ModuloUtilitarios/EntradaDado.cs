@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp.Utilitarios
+namespace ClubeDaLeitura.ConsoleApp.ModuloUtilitarios
 {
     internal class EntradaDado
     {

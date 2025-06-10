@@ -1,4 +1,4 @@
-﻿using ClubeDaLeitura.ConsoleApp.Modelo;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloModelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp.Amigo
+namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 {
     public class Amigo : EntidadeModelo
     {

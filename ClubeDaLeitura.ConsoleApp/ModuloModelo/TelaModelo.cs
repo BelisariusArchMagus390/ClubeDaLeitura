@@ -1,4 +1,4 @@
-﻿using ClubeDaLeitura.ConsoleApp.Utilitarios;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloUtilitarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ClubeDaLeitura.ConsoleApp.Modelo
+namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
 {
     public abstract class TelaModelo
     {

@@ -1,13 +1,13 @@
-﻿using ClubeDaLeitura.ConsoleApp.Caixa;
-using ClubeDaLeitura.ConsoleApp.Modelo;
-using ClubeDaLeitura.ConsoleApp.Utilitarios;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloUtilitarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp.Revista
+namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 {
     public class TelaRevista : TelaModelo
     {

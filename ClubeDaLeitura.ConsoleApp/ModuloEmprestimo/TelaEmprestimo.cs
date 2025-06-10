@@ -1,7 +1,7 @@
-﻿using ClubeDaLeitura.ConsoleApp.Amigo;
-using ClubeDaLeitura.ConsoleApp.Modelo;
-using ClubeDaLeitura.ConsoleApp.Revista;
-using ClubeDaLeitura.ConsoleApp.Utilitarios;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
+using ClubeDaLeitura.ConsoleApp.ModuloUtilitarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ClubeDaLeitura.ConsoleApp.Emprestimo
+namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
     public class TelaEmprestimo : TelaModelo
     {

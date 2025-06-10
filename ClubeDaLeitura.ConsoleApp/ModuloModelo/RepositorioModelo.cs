@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp.Modelo
+namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
 {
     public abstract class RepositorioModelo
     {
