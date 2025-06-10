@@ -16,13 +16,13 @@ namespace ClubeDaLeitura.ConsoleApp.Revista
         public Caixa Caixa { get; set; }
         public string Status { get; set; }
 
-        public Revista(string titulo, int numeroEdicao, int anoPublicao, Caixa caixa, string status )
+        public Revista(string titulo, int numeroEdicao, int anoPublicao, Caixa caixa)
         {
-            Titulo = titulo;
-            NumeroEdicao = numeroEdicao;
-            AnoPublicacao = anoPublicao;
-            Caixa = caixa;
-            Status = "Disponivel";
+            this.Titulo = titulo;
+            this.NumeroEdicao = numeroEdicao;
+            this.AnoPublicacao = anoPublicao;
+            this.Caixa = caixa;
+            this.Status = "Disponivel";
         }
 
         public override string ValidarDados()

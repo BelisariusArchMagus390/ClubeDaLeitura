@@ -15,16 +15,16 @@ namespace ClubeDaLeitura.ConsoleApp.Caixa
 
         public Caixa(string etiqueta, string cor)
         {
-            Etiqueta = etiqueta;
-            Cor = cor;
-            DiasEmprestimo = 7;
+            this.Etiqueta = etiqueta;
+            this.Cor = cor;
+            this.DiasEmprestimo = 7;
         }
 
         public Caixa(string etiqueta, string cor, int diasEmprestimo)
         {
-            Etiqueta = etiqueta;
-            Cor = cor;
-            DiasEmprestimo = diasEmprestimo;
+            this.Etiqueta = etiqueta;
+            this.Cor = cor;
+            this.DiasEmprestimo = diasEmprestimo;
         }
 
         public override string ValidarDados()

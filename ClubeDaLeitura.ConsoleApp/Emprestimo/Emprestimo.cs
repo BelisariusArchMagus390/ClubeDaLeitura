@@ -17,11 +17,11 @@ namespace ClubeDaLeitura.ConsoleApp.Emprestimo
 
         public Emprestimo(Amigo amigo, Revista revista)
         {
-            Amigo = amigo;
-            Revista = revista;
-            DataEmprestimo = DateTime.Now;
-            DataDevolucao = DataEmprestimo.AddDays(Revista.Caixa.DiasEmprestimo);
-            Status = "Aberto";
+            this.Amigo = amigo;
+            this.Revista = revista;
+            this.DataEmprestimo = DateTime.Now;
+            this.DataDevolucao = DataEmprestimo.AddDays(Revista.Caixa.DiasEmprestimo);
+            this.Status = "Aberto";
         }
 
         public override string ValidarDados()
@@ -39,7 +39,8 @@ namespace ClubeDaLeitura.ConsoleApp.Emprestimo
 
         public override void AtualizarRegistro(EntidadeModelo registro)
         {
-            Status = "Concluído";
+            this.Status = "Concluído";
+            this.Revista.Status = "Disponível";
         }
     }
 }

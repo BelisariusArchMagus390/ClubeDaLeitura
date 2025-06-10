@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Caixa;
 using ClubeDaLeitura.ConsoleApp.Modelo;
+using ClubeDaLeitura.ConsoleApp.Utilitarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.Revista
     public class TelaRevista : TelaModelo
     {
         private RepositorioCaixa RepositorioCaixa;
+        static EntradaDado Entrada = new EntradaDado();
 
         public TelaRevista(RepositorioRevista repositorio, RepositorioCaixa repositorioCaixa) : base("Revista", repositorio)
         {
@@ -42,7 +44,7 @@ namespace ClubeDaLeitura.ConsoleApp.Revista
             }
         }
 
-        public void VisualizarCaixa(bool mostrarParaSelecao = false)
+        public void VisualizarCaixa()
         {
             Console.WriteLine(
                 " {0, -10} | {1, -30} | {2, -30} | {3, -30} ",
@@ -58,18 +60,28 @@ namespace ClubeDaLeitura.ConsoleApp.Revista
                     " {0, -10} | {1, -30} | {2, -30} | {3, -30} ",
                     " " + c.Id, c.Etiqueta, c.Cor, c.DiasEmprestimo
                 );
-            }
-
-            if (mostrarParaSelecao == false)
-            {
-                Console.WriteLine("\n Aperte ENTER para continuar...");
-                Console.ReadLine();
-            }
+            }            
         }
 
         protected override EntidadeModelo PegarDados()
         {
+            Console.Clear();
+            Console.Write("\n Digite o título da revista: ");
+            string titulo = Console.ReadLine();
 
+            int numeroEdicao = Entrada.VerificaValorInt("\n Digite o número de edição da revista: ");
+
+            int anoPublicacao = Entrada.VerificaValorInt("\n Digite o ano de publicação da revista: ");
+
+            VisualizarCaixa();
+
+            int idCaixa = Entrada.VerificaValorInt("\n Digite o ID do caixa que deseja: ");
+
+            Caixa caixa = (Caixa)RepositorioCaixa.SelecionarRegistroPorId(idCaixa);
+
+            Revista revista = new Revista(titulo, numeroEdicao, anoPublicacao, caixa);
+
+            return caixa;
         }
     }
 }
