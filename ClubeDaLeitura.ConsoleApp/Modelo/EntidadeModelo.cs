@@ -8,7 +8,7 @@ namespace ClubeDaLeitura.ConsoleApp.Modelo
 {
     public abstract class EntidadeModelo
     {
-        public int Id;
+        public int Id { get; set; }
 
         public abstract void AtualizarRegistro(EntidadeModelo registro);
         public abstract string ValidarDados();

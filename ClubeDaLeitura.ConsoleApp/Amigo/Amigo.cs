@@ -10,9 +10,9 @@ namespace ClubeDaLeitura.ConsoleApp.Amigo
 {
     public class Amigo : EntidadeModelo
     {
-        public string Nome;
-        public string Responsavel;
-        public string Telefone;
+        public string Nome { get; set; }
+        public string Responsavel { get; set; }
+        public string Telefone { get; set; }
 
         public Amigo(string nome, string responsavel, string telefone)
         {
