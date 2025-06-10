@@ -24,9 +24,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             RepositorioRevista repositorioRevista
         ) : base("Emprestimo", repositorio)
         {
-            Repositorio = repositorio;
-            RepositorioAmigo = repositorioAmigo;
-            RepositorioRevista = repositorioRevista;
+            this.Repositorio = repositorio;
+            this.RepositorioAmigo = repositorioAmigo;
+            this.RepositorioRevista = repositorioRevista;
         }
 
         public override char MostrarMenu()
