@@ -23,8 +23,9 @@ namespace ClubeDaLeitura.ConsoleApp
                 Console.Clear();
 
                 char opcao = telaEscolhida.MostrarMenu();
+                opcao = Char.ToUpper(opcao);
 
-                if (opcao == '5')
+                if (opcao == 'S')
                     break;
 
                 Console.Clear();

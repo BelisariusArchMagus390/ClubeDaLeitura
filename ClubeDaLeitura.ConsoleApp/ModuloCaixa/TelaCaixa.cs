@@ -51,6 +51,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Console.Write("\n Digite a cor da caixa: ");
             string cor = Console.ReadLine();
 
+            Console.Clear();
             int diasEmprestimo = Entrada.VerificaValorInt("\n Digite a quantidade de dias de empréstimo (opcional): ");
 
             Caixa caixa = new Caixa(etiqueta, cor, diasEmprestimo);

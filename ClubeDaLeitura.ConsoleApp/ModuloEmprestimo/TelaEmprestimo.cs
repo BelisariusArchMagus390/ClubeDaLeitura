@@ -39,7 +39,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine($"\n 1 - Registrar novo {NomeEntidade}");
             Console.WriteLine($" 2 - Mostrar {NomeEntidade}s");
             Console.WriteLine($" 3 - Devolução de {NomeEntidade}s");
-            Console.WriteLine(" 4 - Sair");
+            Console.WriteLine(" 4 - Voltar");
 
             Console.Write("\n Escolha uma das opções acima: ");
             char opcao = Console.ReadLine()[0];
@@ -107,7 +107,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 }
             }
 
-            Console.Write("\n Deseja confirmar a conclusão do empréstimo? (S/N)");
+            Console.Write("\n Deseja confirmar a conclusão do empréstimo (S/N)? ");
             string opcao = Console.ReadLine();
 
             if (opcao.ToUpper() == "S")
@@ -191,6 +191,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
                 Console.ResetColor();
             }
+
+            Console.WriteLine("\n Aperte ENTER para continuar...");
+            Console.ReadLine();
         }
 
         public void MostrarEmprestimosAtivos()
@@ -221,7 +224,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             " Id", "Nome", "Responsável", "Telefone"
             );
 
-            foreach (Amigo a in Repositorio.PegarRegistros())
+            foreach (Amigo a in RepositorioAmigo.PegarRegistros())
             {
                 if (a == null)
                     continue;

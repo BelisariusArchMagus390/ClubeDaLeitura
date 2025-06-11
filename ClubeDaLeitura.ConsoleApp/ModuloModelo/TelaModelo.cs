@@ -30,7 +30,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
             Console.WriteLine($" 2 - Mostrar {NomeEntidade}s");
             Console.WriteLine($" 3 - Atualizar registro de {NomeEntidade}");
             Console.WriteLine($" 4 - Excluir registro de {NomeEntidade}");
-            Console.WriteLine(" 5 - Sair");
+            Console.WriteLine(" 5 - Voltar");
 
             Console.Write("\n Escolha uma das opções acima: ");
             char opcao = Console.ReadLine()[0];

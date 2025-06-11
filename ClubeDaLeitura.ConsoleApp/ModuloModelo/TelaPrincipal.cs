@@ -46,10 +46,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
 
             Revista revista = new Revista("Superman", 150, 1995, caixa);
             RepositorioRevista.AdicionarRegistro(revista);
-
-            Emprestimo emprestimo = new Emprestimo(amigo, revista);
-            emprestimo.DataEmprestimo = DateTime.Now.AddDays(-2);
-            RepositorioEmprestimo.AdicionarRegistro(emprestimo);
         }
 
         public void MostrarMenuGeral()
@@ -64,7 +60,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
             Console.WriteLine(" 2 - Gestão de Caixas");
             Console.WriteLine(" 3 - Gestão de Revistas");
             Console.WriteLine(" 4 - Gestão de Empréstimos");
-            Console.WriteLine(" 5 - Sair");
+            Console.WriteLine(" S - Sair");
             Console.Write("\n Escolha uma das opções acima: ");
 
             Opcao = Console.ReadLine()[0];

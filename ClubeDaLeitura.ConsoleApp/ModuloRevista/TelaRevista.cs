@@ -70,10 +70,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Console.Write("\n Digite o título da revista: ");
             string titulo = Console.ReadLine();
 
+            Console.Clear();
             int numeroEdicao = Entrada.VerificaValorInt("\n Digite o número de edição da revista: ");
 
+            Console.Clear();
             int anoPublicacao = Entrada.VerificaValorInt("\n Digite o ano de publicação da revista: ");
 
+            Console.Clear();
             VisualizarCaixa();
 
             int idCaixa = Entrada.VerificaValorInt("\n Digite o ID do caixa que deseja: ");
@@ -84,7 +87,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             revista.Id = IdContador;
             IdContador++;
 
-            return caixa;
+            return revista;
         }
     }
 }
