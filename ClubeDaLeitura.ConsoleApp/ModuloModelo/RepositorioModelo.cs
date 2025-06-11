@@ -10,13 +10,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
     public abstract class RepositorioModelo
     {
         private List<EntidadeModelo> Registros = new List<EntidadeModelo>();
-        private static int IdContador = 0;
 
         public void AdicionarRegistro(EntidadeModelo novoRegistro)
         {
-            novoRegistro.Id = IdContador;
             Registros.Add(novoRegistro);
-            IdContador++;
         }
 
         public bool EditarRegistro(int id, EntidadeModelo registroAtualizado) 

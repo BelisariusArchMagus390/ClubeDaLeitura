@@ -13,6 +13,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
     {
         private RepositorioCaixa RepositorioCaixa;
         static EntradaDado Entrada = new EntradaDado();
+        private static int IdContador = 0;
 
         public TelaRevista(RepositorioRevista repositorio, RepositorioCaixa repositorioCaixa) : base("Revista", repositorio)
         {
@@ -80,6 +81,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Caixa caixa = (Caixa)RepositorioCaixa.SelecionarRegistroPorId(idCaixa);
 
             Revista revista = new Revista(titulo, numeroEdicao, anoPublicacao, caixa);
+            revista.Id = IdContador;
+            IdContador++;
 
             return caixa;
         }

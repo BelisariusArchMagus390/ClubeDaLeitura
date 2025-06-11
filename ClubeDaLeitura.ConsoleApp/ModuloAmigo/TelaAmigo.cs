@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ClubeDaLeitura.ConsoleApp.ModuloUtilitarios;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
     public class TelaAmigo : TelaModelo
     {
         static EntradaDado Entrada = new EntradaDado();
+        private static int IdContador = 0;
 
         public TelaAmigo(RepositorioAmigo repositorio) : base("Amigo", repositorio) { }
 
@@ -143,6 +145,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             string telefone = Console.ReadLine();
 
             Amigo amigo = new Amigo(nome, responsavel, telefone);
+            amigo.Id = IdContador;
+            IdContador++;
 
             return amigo;
         }

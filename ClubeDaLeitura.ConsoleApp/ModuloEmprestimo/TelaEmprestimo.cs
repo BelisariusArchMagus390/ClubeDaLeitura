@@ -17,6 +17,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         private RepositorioAmigo RepositorioAmigo;
         private RepositorioRevista RepositorioRevista;
         static EntradaDado Entrada = new EntradaDado();
+        private static int IdContador = 0;
 
         public TelaEmprestimo(
             RepositorioEmprestimo repositorio, 
@@ -162,6 +163,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             }
 
             Emprestimo emprestimo = new Emprestimo(amigo, revista);
+            emprestimo.Id = IdContador;
+            IdContador++;
 
             return emprestimo;
         }

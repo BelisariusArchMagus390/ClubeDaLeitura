@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ClubeDaLeitura.ConsoleApp.ModuloUtilitarios;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
     public class TelaCaixa : TelaModelo
     {
         static EntradaDado Entrada = new EntradaDado();
+        private static int IdContador = 0;
 
         public TelaCaixa(RepositorioCaixa repositorio) : base("Caixa", repositorio) { }
 
@@ -52,6 +54,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             int diasEmprestimo = Entrada.VerificaValorInt("\n Digite a quantidade de dias de empréstimo (opcional): ");
 
             Caixa caixa = new Caixa(etiqueta, cor, diasEmprestimo);
+            caixa.Id = IdContador;
+            IdContador++;
 
             return caixa;
         }

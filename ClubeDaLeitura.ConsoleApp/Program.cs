@@ -11,6 +11,8 @@ namespace ClubeDaLeitura.ConsoleApp
 
             while (true)
             {
+                Console.Clear();
+
                 telaPrincipal.MostrarMenuGeral();
 
                 TelaModelo telaEscolhida = telaPrincipal.SelecionarTela();
@@ -18,14 +20,20 @@ namespace ClubeDaLeitura.ConsoleApp
                 if (telaEscolhida == null)
                     break;
 
+                Console.Clear();
+
                 char opcao = telaEscolhida.MostrarMenu();
 
                 if (opcao == '5')
                     break;
 
+                Console.Clear();
+
                 if (telaEscolhida is TelaEmprestimo)
                 {
                     TelaEmprestimo telaEmprestimo = (TelaEmprestimo)telaEscolhida;
+
+                    Console.Clear();
 
                     switch (opcao)
                     {
