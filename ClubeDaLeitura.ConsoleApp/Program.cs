@@ -42,11 +42,11 @@ namespace ClubeDaLeitura.ConsoleApp
                             break;
 
                         case '2':
-                            telaEmprestimo.DevolverEmprestimo();
+                            telaEmprestimo.MostrarRegistros();
                             break;
 
                         case '3':
-                            telaEmprestimo.MostrarRegistros();
+                            telaEmprestimo.DevolverEmprestimo();
                             break;
                     }
                 }

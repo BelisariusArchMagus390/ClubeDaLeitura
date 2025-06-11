@@ -37,6 +37,19 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
             TelaCaixa = new TelaCaixa(RepositorioCaixa);
             TelaRevista = new TelaRevista(RepositorioRevista, RepositorioCaixa);
             TelaEmprestimo = new TelaEmprestimo(RepositorioEmprestimo, RepositorioAmigo, RepositorioRevista);
+
+            Amigo amigo = new Amigo("Júnior", "Amanda", "49 99999-3333");
+            RepositorioAmigo.AdicionarRegistro(amigo);
+
+            Caixa caixa = new Caixa("Ação", "Vermelha", 1);
+            RepositorioCaixa.AdicionarRegistro(caixa);
+
+            Revista revista = new Revista("Superman", 150, 1995, caixa);
+            RepositorioRevista.AdicionarRegistro(revista);
+
+            Emprestimo emprestimo = new Emprestimo(amigo, revista);
+            emprestimo.DataEmprestimo = DateTime.Now.AddDays(-2);
+            RepositorioEmprestimo.AdicionarRegistro(emprestimo);
         }
 
         public void MostrarMenuGeral()
