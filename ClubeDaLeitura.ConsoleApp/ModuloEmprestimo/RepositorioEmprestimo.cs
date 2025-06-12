@@ -25,5 +25,22 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             return emprestimosAtivos;
         }
+
+        public List<Emprestimo> SelecionarEmprestimosComMulta()
+        {
+            List<Emprestimo> emprestimosComMulta = new List<Emprestimo>();
+
+            List<EntidadeModelo> registros = PegarRegistros();
+
+            foreach (EntidadeModelo rd in registros)
+            {
+                Emprestimo emprestimo = (Emprestimo)rd;
+
+                if (emprestimo.Status == "Aberto" && emprestimo.Multa != null && !emprestimo.MultaPaga)
+                    emprestimosComMulta.Add(emprestimo);
+            }
+
+            return emprestimosComMulta;
+        }
     }
 }

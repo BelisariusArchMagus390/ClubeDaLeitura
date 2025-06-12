@@ -33,7 +33,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
             RepositorioRevista = new RepositorioRevista();
             RepositorioEmprestimo = new RepositorioEmprestimo();
 
-            TelaAmigo = new TelaAmigo(RepositorioAmigo);
+            TelaAmigo = new TelaAmigo(RepositorioAmigo, RepositorioEmprestimo);
             TelaCaixa = new TelaCaixa(RepositorioCaixa);
             TelaRevista = new TelaRevista(RepositorioRevista, RepositorioCaixa);
             TelaEmprestimo = new TelaEmprestimo(RepositorioEmprestimo, RepositorioAmigo, RepositorioRevista);

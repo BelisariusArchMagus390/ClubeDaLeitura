@@ -49,6 +49,9 @@ namespace ClubeDaLeitura.ConsoleApp
                         case '3':
                             telaEmprestimo.DevolverEmprestimo();
                             break;
+                        case '4':
+                            telaEmprestimo.PagarMultas();
+                            break;
                     }
                 }
                 else

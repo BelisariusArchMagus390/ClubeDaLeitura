@@ -39,7 +39,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine($"\n 1 - Registrar novo {NomeEntidade}");
             Console.WriteLine($" 2 - Mostrar {NomeEntidade}s");
             Console.WriteLine($" 3 - Devolução de {NomeEntidade}s");
-            Console.WriteLine(" 4 - Voltar");
+            Console.WriteLine($" 4 - Pagamento de Multas de {NomeEntidade}s");
+            Console.WriteLine(" 5 - Voltar");
 
             Console.Write("\n Escolha uma das opções acima: ");
             char opcao = Console.ReadLine()[0];
@@ -116,6 +117,42 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
                 Console.Clear();
                 Console.WriteLine($"\n Emprestimo concluído com sucesso!");
+                Console.WriteLine("\n Aperte ENTER para continuar...");
+                Console.ReadLine();
+            }
+        }
+
+        public void PagarMultas()
+        {
+            Emprestimo emprestimo;
+
+            while (true)
+            {
+                Console.Clear();
+
+                MostrarEmprestimosComMulta();
+
+                int idEmprestimo = Entrada.VerificaValorInt("\n Digite o ID do emprestimo com multas a serem pagas: ");
+                emprestimo = (Emprestimo)Repositorio.SelecionarRegistroPorId(idEmprestimo);
+
+                if (emprestimo == null)
+                    Console.WriteLine($"\n Erro! Não foi encontrado o ID do emprestimo desejado.");
+                else
+                {
+                    Console.WriteLine($"\n Emprestimo selecionado com sucesso!");
+                    break;
+                }
+            }
+
+            Console.Write("\n Deseja confirmar o pagamento da multa (S/N)? ");
+            string opcao = Console.ReadLine();
+
+            if (opcao.ToUpper() == "S")
+            {
+                emprestimo.MultaPaga = true;
+
+                Console.Clear();
+                Console.WriteLine($"\n Pagamento de multa do {NomeEntidade} concluído com sucesso!");
                 Console.WriteLine("\n Aperte ENTER para continuar...");
                 Console.ReadLine();
             }
@@ -213,6 +250,27 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 Console.WriteLine(
                     " {0, -5} | {1, -15} | {2, -15} | {3, -20} | {4, -25} | {5, -15} ",
                     " " + e.Id, e.Amigo.Nome, e.Revista.Titulo, e.DataEmprestimo.ToShortDateString(), e.DataDevolucao.ToShortDateString(), e.Status
+                );
+            }
+        }
+
+        public void MostrarEmprestimosComMulta()
+        {
+            List<Emprestimo> emprestimosComMulta = Repositorio.SelecionarEmprestimosComMulta();
+
+            Console.WriteLine(
+                " {0, -5} | {1, -15} | {2, -15} | {3, -20} | {4, -25} | {5, -20} ",
+            " Id", "Amigo", "Revista", "Data do Empréstimo", "Data de Devolução", "Valor da Multa"
+            );
+
+            foreach (Emprestimo e in emprestimosComMulta)
+            {
+                if (e == null)
+                    continue;
+
+                Console.WriteLine(
+                    " {0, -5} | {1, -15} | {2, -15} | {3, -20} | {4, -25} | {5, -20} ",
+                    " " + e.Id, e.Amigo.Nome, e.Revista.Titulo, e.DataEmprestimo.ToShortDateString(), e.DataDevolucao.ToShortDateString(), e.Multa.Valor.ToString("C2")
                 );
             }
         }
