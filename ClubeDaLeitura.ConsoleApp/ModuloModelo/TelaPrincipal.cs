@@ -41,7 +41,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
             TelaAmigo = new TelaAmigo(RepositorioAmigo, RepositorioEmprestimo);
             TelaCaixa = new TelaCaixa(RepositorioCaixa);
             TelaRevista = new TelaRevista(RepositorioRevista, RepositorioCaixa);
-            TelaEmprestimo = new TelaEmprestimo(RepositorioEmprestimo, RepositorioAmigo, RepositorioRevista);
+            TelaEmprestimo = new TelaEmprestimo(RepositorioEmprestimo, RepositorioAmigo, RepositorioRevista, RepositorioReservas);
             TelaReservas = new TelaReservas(RepositorioReservas, RepositorioAmigo, RepositorioRevista, RepositorioEmprestimo);
         }
 
