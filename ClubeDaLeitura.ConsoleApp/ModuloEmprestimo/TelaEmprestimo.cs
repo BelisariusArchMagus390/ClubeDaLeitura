@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloReservas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ClubeDaLeitura.ConsoleApp.ModuloUtilitarios;
 using System;
@@ -16,18 +17,21 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         private RepositorioEmprestimo Repositorio;
         private RepositorioAmigo RepositorioAmigo;
         private RepositorioRevista RepositorioRevista;
+        private RepositorioReservas RepositorioReservas;
         static EntradaDado Entrada = new EntradaDado();
         private static int IdContador = 0;
 
         public TelaEmprestimo(
             RepositorioEmprestimo repositorio, 
             RepositorioAmigo repositorioAmigo, 
-            RepositorioRevista repositorioRevista
+            RepositorioRevista repositorioRevista,
+            RepositorioReservas repositorioReservas
         ) : base("Emprestimo", repositorio)
         {
             this.Repositorio = repositorio;
             this.RepositorioAmigo = repositorioAmigo;
             this.RepositorioRevista = repositorioRevista;
+            this.RepositorioReservas = repositorioReservas;
         }
 
         public override char MostrarMenu()
@@ -75,6 +79,26 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
                     Registrar();
                     return;
+                }
+            }
+
+            foreach (Reservas r in RepositorioReservas.PegarRegistros())
+            {
+                if (r.Revista.Id == emprestimoNovoRegistro.Revista.Id && r.Status == "Ativa")
+                {
+                    Entrada.MostrarMensageDeErro(" A revista selecionada para esse empréstimo já está reservada.");
+
+                    Registrar();
+                    return;
+                }
+            }
+
+            foreach (Reservas r in RepositorioReservas.PegarRegistros())
+            {
+                if (r.Amigo.Id == emprestimoNovoRegistro.Amigo.Id)
+                {
+                    r.AtualizarRegistro(r);
+                    r.Revista.Status = "Disponivel";
                 }
             }
 
@@ -198,6 +222,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                     break;
                 }
             }
+
+            revista.Status = "Emprestada";
 
             Emprestimo emprestimo = new Emprestimo(amigo, revista);
             emprestimo.Id = IdContador;
