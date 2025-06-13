@@ -1,6 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
+using ClubeDaLeitura.ConsoleApp.ModuloReservas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System;
 using System.Collections.Generic;
@@ -26,17 +27,22 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
         private RepositorioEmprestimo RepositorioEmprestimo;
         private TelaEmprestimo TelaEmprestimo;
 
+        private RepositorioReservas RepositorioReservas;
+        private TelaReservas TelaReservas;
+
         public TelaPrincipal()
         {
             RepositorioAmigo = new RepositorioAmigo();
             RepositorioCaixa = new RepositorioCaixa();
             RepositorioRevista = new RepositorioRevista();
             RepositorioEmprestimo = new RepositorioEmprestimo();
+            RepositorioReservas = new RepositorioReservas();
 
-            TelaAmigo = new TelaAmigo(RepositorioAmigo);
+            TelaAmigo = new TelaAmigo(RepositorioAmigo, RepositorioEmprestimo);
             TelaCaixa = new TelaCaixa(RepositorioCaixa);
             TelaRevista = new TelaRevista(RepositorioRevista, RepositorioCaixa);
-            TelaEmprestimo = new TelaEmprestimo(RepositorioEmprestimo, RepositorioAmigo, RepositorioRevista);
+            TelaEmprestimo = new TelaEmprestimo(RepositorioEmprestimo, RepositorioAmigo, RepositorioRevista, RepositorioReservas);
+            TelaReservas = new TelaReservas(RepositorioReservas, RepositorioAmigo, RepositorioRevista, RepositorioEmprestimo);
         }
 
         public void MostrarMenuGeral()
@@ -51,6 +57,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
             Console.WriteLine(" 2 - Gestão de Caixas");
             Console.WriteLine(" 3 - Gestão de Revistas");
             Console.WriteLine(" 4 - Gestão de Empréstimos");
+            Console.WriteLine(" 5 - Gestão de Reservas");
             Console.WriteLine(" S - Sair");
             Console.Write("\n Escolha uma das opções acima: ");
 
@@ -69,6 +76,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloModelo
                     return TelaRevista;
                 case '4':
                     return TelaEmprestimo;
+                case '5':
+                    return TelaReservas;
             }
             return null;
         }

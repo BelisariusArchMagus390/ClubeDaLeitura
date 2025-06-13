@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+using ClubeDaLeitura.ConsoleApp.ModuloReservas;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -48,6 +49,30 @@ namespace ClubeDaLeitura.ConsoleApp
 
                         case '3':
                             telaEmprestimo.DevolverEmprestimo();
+                            break;
+                        case '4':
+                            telaEmprestimo.PagarMultas();
+                            break;
+                    }
+                }
+                else if (telaEscolhida is TelaReservas)
+                {
+                    TelaReservas telaReservas = (TelaReservas)telaEscolhida;
+
+                    Console.Clear();
+
+                    switch (opcao)
+                    {
+                        case '1':
+                            telaReservas.Registrar();
+                            break;
+
+                        case '2':
+                            telaReservas.MostrarRegistros();
+                            break;
+
+                        case '3':
+                            telaReservas.CancelarReserva();
                             break;
                     }
                 }

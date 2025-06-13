@@ -1,4 +1,5 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloModelo;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
+using ClubeDaLeitura.ConsoleApp.ModuloModelo;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ClubeDaLeitura.ConsoleApp.ModuloUtilitarios;
 using System;
@@ -14,8 +15,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
     {
         static EntradaDado Entrada = new EntradaDado();
         private static int IdContador = 0;
+        private RepositorioEmprestimo RepositorioEmprestimo;
 
-        public TelaAmigo(RepositorioAmigo repositorio) : base("Amigo", repositorio) { }
+        public TelaAmigo(RepositorioAmigo repositorio, RepositorioEmprestimo repositorioEmprestimo) : base("Amigo", repositorio) 
+        {
+            this.RepositorioEmprestimo = repositorioEmprestimo;
+        }
 
         public override void Registrar()
         {
@@ -108,8 +113,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
         public override void MostrarRegistros(bool mostrarParaSelecao = false)
         {
             Console.WriteLine(
-                " {0, -10} | {1, -30} | {2, -30} | {3, -20} ",
-            " Id", "Nome", "Responsável", "Telefone"
+                " {0, -10} | {1, -30} | {2, -30} | {3, -20} | {4, -15} ",
+            " Id", "Nome", "Responsável", "Telefone", "Multa Ativa"
             );
 
             foreach (Amigo a in Repositorio.PegarRegistros())
@@ -117,9 +122,25 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
                 if (a == null)
                     continue;
 
+                bool amigoTemMultaAtiva = false;
+
+                foreach (Emprestimo e in RepositorioEmprestimo.PegarRegistros())
+                {
+                    if (a == null)
+                        continue;
+
+                    if (a == e.Amigo && e.Multa != null)
+                    {
+                        if (!e.MultaPaga)
+                            amigoTemMultaAtiva = true;
+                    }
+                }
+
+                string stringMultaAtiva = amigoTemMultaAtiva ? "Sim" : "Não";
+
                 Console.WriteLine(
-                    " {0, -10} | {1, -20} | {2, -10} | {3, -10} ",
-                    " " + a.Id, a.Nome, a.Responsavel, a.Telefone
+                    " {0, -10} | {1, -20} | {2, -10} | {3, -10} | {4, -15} ",
+                    " " + a.Id, a.Nome, a.Responsavel, a.Telefone, stringMultaAtiva
                 );
             }
 
